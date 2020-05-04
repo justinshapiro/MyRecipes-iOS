@@ -33,7 +33,7 @@
                                                         <string key="text">keep track of your 
 food and recipes</string>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="Brand Dark Purple"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -152,7 +152,7 @@ food and recipes</string>
                                                 <color key="textColor" name="Brand Grey"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4er-je-dMt">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4er-je-dMt">
                                                 <rect key="frame" x="192" y="758" width="30" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="skip">
@@ -191,14 +191,37 @@ food and recipes</string>
                                     <constraint firstItem="M5i-ti-R2c" firstAttribute="top" secondItem="VIS-UG-cXl" secondAttribute="top" id="kOe-dG-pa2"/>
                                 </constraints>
                             </scrollView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fPn-fA-ubt">
+                                <rect key="frame" x="353.5" y="62" width="25" height="21"/>
+                                <color key="tintColor" name="Brand Orange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="6l2-kD-xjF"/>
+                                    <constraint firstAttribute="width" constant="25" id="VVT-eD-RY2"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9i-TJ-u7p">
+                                <rect key="frame" x="342.5" y="45" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="NQz-lF-zUa"/>
+                                    <constraint firstAttribute="width" constant="44" id="o8c-FN-eOB"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="trd-MY-NkV" eventType="primaryActionTriggered" id="33L-v6-Xya"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="J9i-TJ-u7p" firstAttribute="top" secondItem="pcz-XO-eRM" secondAttribute="top" constant="45" id="2OW-2y-Rnj"/>
+                            <constraint firstItem="fPn-fA-ubt" firstAttribute="trailing" secondItem="Gdg-7L-XZM" secondAttribute="trailing" constant="16" id="Auu-IT-2rc"/>
                             <constraint firstItem="wgQ-7y-NBc" firstAttribute="height" secondItem="DVM-BV-f2t" secondAttribute="height" multiplier="0.25" id="DxS-gq-FiU"/>
                             <constraint firstItem="Gdg-7L-XZM" firstAttribute="centerX" secondItem="DVM-BV-f2t" secondAttribute="centerX" id="E2x-1c-SZ6"/>
                             <constraint firstItem="DVM-BV-f2t" firstAttribute="trailing" secondItem="VIS-UG-cXl" secondAttribute="trailing" id="YZI-CW-vuG"/>
                             <constraint firstItem="Gdg-7L-XZM" firstAttribute="width" secondItem="DVM-BV-f2t" secondAttribute="width" multiplier="0.75" id="Yfu-f6-4bY"/>
                             <constraint firstItem="VIS-UG-cXl" firstAttribute="leading" secondItem="DVM-BV-f2t" secondAttribute="leading" id="d2p-h5-PTa"/>
+                            <constraint firstItem="fPn-fA-ubt" firstAttribute="top" secondItem="DVM-BV-f2t" secondAttribute="top" constant="16" id="fHj-G9-IoF"/>
+                            <constraint firstItem="J9i-TJ-u7p" firstAttribute="trailing" secondItem="Gdg-7L-XZM" secondAttribute="trailing" constant="24" id="glj-HN-gaX"/>
                             <constraint firstItem="VIS-UG-cXl" firstAttribute="top" secondItem="DVM-BV-f2t" secondAttribute="top" id="mzj-6E-5US"/>
                             <constraint firstItem="DVM-BV-f2t" firstAttribute="bottom" secondItem="VIS-UG-cXl" secondAttribute="bottom" id="xBG-Ln-avZ"/>
                         </constraints>
@@ -213,15 +236,21 @@ food and recipes</string>
                         <outlet property="secondaryButton" destination="7qF-FZ-Udc" id="Gyr-YC-dMZ"/>
                         <outlet property="secondaryPromptLabel" destination="j0p-BT-r54" id="c00-co-kZ9"/>
                         <outlet property="titleLabel" destination="PHt-t8-0FN" id="MAQ-Gm-vLR"/>
+                        <segue destination="R7m-Ea-9Gw" kind="unwind" identifier="toOnboarding" customClass="RegistrationSheetSlideDownSegue" customModule="myRecipes" customModuleProvider="target" unwindAction="unwind:" id="D7O-PQ-HP8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWo-r4-0bn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="R7m-Ea-9Gw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="39.130434782608695" y="-78.348214285714278"/>
         </scene>
     </scenes>
     <resources>
         <image name="logo_orange" width="182.5" height="112"/>
+        <image name="xmark" catalog="system" width="64" height="56"/>
+        <namedColor name="Brand Dark Purple">
+            <color red="0.31764705882352939" green="0.28627450980392155" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Brand Grey">
             <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -230,6 +259,9 @@ food and recipes</string>
         </namedColor>
         <namedColor name="Brand Light Yellow">
             <color red="1" green="0.84705882352941175" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Brand Orange">
+            <color red="1" green="0.65098039215686276" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Brand Pink">
             <color red="0.92941176470588238" green="0.22745098039215686" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

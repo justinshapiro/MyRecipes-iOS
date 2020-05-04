@@ -17,6 +17,9 @@ final class OnboardingViewController: UIViewController {
     @IBOutlet private var imageViews: [UIImageView]!
     @IBOutlet private var pageControl: UIPageControl!
     @IBOutlet private var scrollView: UIScrollView!
+    @IBOutlet private(set) var sheetView: UIView!
+    @IBOutlet private(set) var sheetViewCollapsedConstraint: NSLayoutConstraint!
+    @IBOutlet private(set) var sheetViewExpandedConstraint: NSLayoutConstraint!
     
     // MARK: - Overrides
     
@@ -42,6 +45,10 @@ final class OnboardingViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         UIApplication.shared.windows.first?.backgroundColor = .white
     }
+    
+    // MARK: - Helper methods
+    
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {}
 }
 
 // MARK: - UIScrollViewDelegate

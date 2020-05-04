@@ -136,6 +136,15 @@
                                     <outlet property="delegate" destination="JT8-az-I8o" id="i6V-E0-VsF"/>
                                 </connections>
                             </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K25-4S-xF8" userLabel="Transition Root View">
+                                <rect key="frame" x="0.0" y="757" width="414" height="139"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="44"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqi-T3-R38" userLabel="Root View">
                                 <rect key="frame" x="0.0" y="757" width="414" height="139"/>
                                 <subviews>
@@ -215,7 +224,9 @@
                         </subviews>
                         <color key="backgroundColor" name="Brand Light Yellow"/>
                         <constraints>
+                            <constraint firstItem="K25-4S-xF8" firstAttribute="height" secondItem="hyi-70-HnC" secondAttribute="height" multiplier="1.1" id="3Bg-ke-8xR"/>
                             <constraint firstItem="hyi-70-HnC" firstAttribute="trailing" secondItem="fqi-T3-R38" secondAttribute="trailing" id="D9l-c9-e6o"/>
+                            <constraint firstItem="K25-4S-xF8" firstAttribute="trailing" secondItem="hyi-70-HnC" secondAttribute="trailing" id="HBB-Q3-Ufg"/>
                             <constraint firstItem="hyi-70-HnC" firstAttribute="trailing" secondItem="5qO-Jd-t1V" secondAttribute="trailing" id="HuU-Fu-9EP"/>
                             <constraint firstItem="jDj-f2-N3c" firstAttribute="centerX" secondItem="fqi-T3-R38" secondAttribute="centerX" id="L2k-aW-2qR"/>
                             <constraint firstItem="fqi-T3-R38" firstAttribute="leading" secondItem="hyi-70-HnC" secondAttribute="leading" id="MfU-gp-hGn"/>
@@ -224,14 +235,25 @@
                             <constraint firstItem="fqi-T3-R38" firstAttribute="bottom" secondItem="mQN-38-afb" secondAttribute="bottom" id="eV0-AN-vyN"/>
                             <constraint firstItem="5qO-Jd-t1V" firstAttribute="leading" secondItem="hyi-70-HnC" secondAttribute="leading" id="evC-lm-ze4"/>
                             <constraint firstItem="fqi-T3-R38" firstAttribute="top" secondItem="jDj-f2-N3c" secondAttribute="bottom" constant="80" id="icm-hy-3YC"/>
+                            <constraint firstAttribute="bottom" secondItem="K25-4S-xF8" secondAttribute="bottom" id="k42-Mn-FD5"/>
+                            <constraint firstItem="K25-4S-xF8" firstAttribute="leading" secondItem="hyi-70-HnC" secondAttribute="leading" id="odS-iP-87m"/>
                             <constraint firstItem="fqi-T3-R38" firstAttribute="height" secondItem="hyi-70-HnC" secondAttribute="height" multiplier="0.17" id="xcG-z2-8yU"/>
+                            <constraint firstItem="K25-4S-xF8" firstAttribute="height" secondItem="hyi-70-HnC" secondAttribute="height" multiplier="0.17" id="xfJ-pr-n2P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hyi-70-HnC"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3Bg-ke-8xR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="36p-kh-zvP" id="YBE-pQ-KrJ"/>
                         <outlet property="pageControl" destination="jDj-f2-N3c" id="0CA-kW-YvX"/>
                         <outlet property="scrollView" destination="5qO-Jd-t1V" id="yKf-q0-aYo"/>
+                        <outlet property="sheetView" destination="K25-4S-xF8" id="lUo-ZL-7Qt"/>
+                        <outlet property="sheetViewCollapsedConstraint" destination="xfJ-pr-n2P" id="KBu-cN-uWL"/>
+                        <outlet property="sheetViewExpandedConstraint" destination="3Bg-ke-8xR" id="A7v-Gp-syM"/>
                         <outlet property="signupButton" destination="5D1-cT-2hY" id="xvA-ll-ICs"/>
                         <outletCollection property="imageViews" destination="qeZ-p5-yq6" collectionClass="NSMutableArray" id="Fbc-yY-gEV"/>
                         <outletCollection property="imageViews" destination="ZFO-Fo-DdA" collectionClass="NSMutableArray" id="muq-5A-ged"/>
@@ -269,6 +291,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dmm-hO-voq"/>
+        <segue reference="pcO-ET-qba"/>
     </inferredMetricsTieBreakers>
 </document>

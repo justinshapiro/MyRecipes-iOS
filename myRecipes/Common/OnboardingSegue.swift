@@ -49,23 +49,25 @@ extension OnboardingSegue where Self: UIStoryboardSegue {
             let destinationButtonFrame = destinationButton.frame
             let yOffset = self.source.view.layoutMargins.top
             
+            onboardingViewController.sheetView.isHidden = false
+            
             let animation = {
                 sourceButton.frame = destinationButtonFrame.offsetBy(dx: 0, dy: yOffset)
                 sourceButton.backgroundColor = .brandLightYellow
                 sourceButton.layer.borderColor = .brandOrange
+                
+                onboardingViewController.sheetViewCollapsedConstraint.isActive = false
+                onboardingViewController.sheetViewExpandedConstraint.isActive = true
+                onboardingViewController.view.layoutIfNeeded()
+                
+                self.destination.view.alpha = 1
             }
             
-            UIView.animate(withDuration: 0.25, animations: animation) { _ in
-                let animations = {
-                    self.destination.view.alpha = 1
-                    self.source.view.removeFromSuperview()
-                }
-                
-                UIView.animate(withDuration: 0.2, animations: animations) { _ in
-                    realSourceButton.alpha = 1
-                    destinationButton.alpha = 1
-                    sourceButton.removeFromSuperview()
-                }
+            UIView.animate(withDuration: 0.35, delay: 0, options: .curveEaseInOut, animations: animation) { _ in
+                realSourceButton.alpha = 1
+                destinationButton.alpha = 1
+                sourceButton.removeFromSuperview()
+                self.source.view.removeFromSuperview()
             }
         }
         

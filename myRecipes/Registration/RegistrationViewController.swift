@@ -37,8 +37,16 @@ final class RegistrationViewController: UIViewController {
         swapButtons()
     }
     
-    private func animate(_ animations: @escaping () -> Void) {
-        UIView.animate(withDuration: isAnimatable ? 0.25 : 0, animations: animations)
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "toOnboarding", sender: nil)
+    }
+    
+    private func animate(completion: (() -> Void)? = nil, animations: @escaping () -> Void) {
+        UIView.animate(
+            withDuration: isAnimatable ? 0.25 : 0,
+            animations: animations,
+            completion: { _ in completion?() }
+        )
     }
     
     private func swapButtons() {
@@ -79,24 +87,16 @@ final class RegistrationViewController: UIViewController {
             self.secondaryButton.alpha = 1
         }
         
-        let cleanUpCompletion: (Bool) -> Void = { _ in
+        let cleanUpCompletion: () -> Void = {
             duplicatedPrimaryButton.removeFromSuperview()
             duplicatedSecondaryButton.removeFromSuperview()
         }
         
-        let swapCompletion: (Bool) -> Void = { _ in
-            UIView.animate(
-                withDuration: 0.2,
-                animations: cleanUpAnimation,
-                completion: cleanUpCompletion
-            )
+        let swapCompletion: () -> Void = {
+            self.animate(completion: cleanUpCompletion, animations: cleanUpAnimation)
         }
         
-        UIView.animate(
-            withDuration: 0.25,
-            animations: swapAnimation,
-            completion: swapCompletion
-        )
+        animate(completion: swapCompletion, animations: swapAnimation)
     }
 }
 
